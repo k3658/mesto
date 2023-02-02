@@ -1,4 +1,4 @@
-.popup__editForm_save {
+.popup__save {
   font-size: 14px;
   font-weight: 400;
   line-height: 17px;
@@ -13,12 +13,12 @@
   cursor: pointer;
 }
 
-.popup__editForm_save:hover {
+.popup__save:hover {
   opacity: 80%;
 }
 
 @media screen and (min-width: 1280px) {
-  .popup__editForm_save {
+  .popup__save {
     font-size: 18px;
     line-height: 22px;
     padding-left: 125px;

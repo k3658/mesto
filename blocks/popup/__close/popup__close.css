@@ -1,4 +1,4 @@
-.popup__editForm_close {
+.popup__close {
   background-image: url(../../../../images/close-mobile.svg);
   min-width: 20px;
   min-height: 20px;
@@ -12,12 +12,12 @@
   cursor: pointer;
 }
 
-.popup__editForm_close:hover {
+.popup__close:hover {
   opacity: 60%;
 }
 
 @media screen and (min-width: 1280px) {
-  .popup__editForm_close {
+  .popup__close {
     background-image: url(../../../../images/close-desktop.svg);
     min-width: 32px;
     min-height: 32px;

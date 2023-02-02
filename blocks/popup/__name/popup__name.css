@@ -1,4 +1,4 @@
-.popup__editForm_name {
+.popup__name {
   font-size: 14px;
   font-weight: 400;
   line-height: 17px;
@@ -14,12 +14,12 @@
   margin-right: 22px;
 }
 
-.popup__editForm_name:focus {
+.popup__name:focus {
   outline: none;
 }
 
 @media screen and (min-width: 1280px) {
-  .popup__editForm_name {
+  .popup__name {
     padding-left: 0;
     margin-left: 36px;
     margin-right: 36px;

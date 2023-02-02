@@ -1,4 +1,4 @@
-.popup__editForm_about {
+.popup__about {
   font-size: 14px;
   font-weight: 400;
   line-height: 17px;
@@ -7,16 +7,18 @@
   color: black;
   border: 0px solid white;
   border-bottom: 1px solid rgba(0, 0, 0, .2);
+  padding: 0;
+  padding-left: 2px;
   padding-bottom: 8px;
-  margin: 30px 20px 0px;
+  margin: 31px 20px 0px;
 }
 
-.popup__editForm_about:focus {
+.popup__about:focus {
   outline: none;
 }
 
 @media screen and (min-width: 1280px) {
-  .popup__editForm_about {
+  .popup__about {
     padding-left: 0;
     margin-left: 36px;
     margin-right: 36px;
