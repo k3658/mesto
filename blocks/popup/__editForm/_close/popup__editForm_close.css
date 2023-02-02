@@ -1,5 +1,5 @@
-.editForm__close {
-  background-image: url(../../../images/close-mobile.svg);
+.popup__editForm_close {
+  background-image: url(../../../../images/close-mobile.svg);
   min-width: 20px;
   min-height: 20px;
   background-repeat: no-repeat;
@@ -12,13 +12,13 @@
   cursor: pointer;
 }
 
-.editForm__close:hover {
+.popup__editForm_close:hover {
   opacity: 60%;
 }
 
 @media screen and (min-width: 1280px) {
-  .editForm__close {
-    background-image: url(../../../images/close-desktop.svg);
+  .popup__editForm_close {
+    background-image: url(../../../../images/close-desktop.svg);
     min-width: 32px;
     min-height: 32px;
     top: -40px;

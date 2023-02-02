@@ -13,13 +13,6 @@
 @import url(../blocks/profile/__about/profile__about.css);
 @import url(../blocks/profile/__add/profile__add.css);
 
-@import url(../blocks/editForm/editForm.css);
-@import url(../blocks/editForm/__close/editForm__close.css);
-@import url(../blocks/editForm/__edit/editForm__edit.css);
-@import url(../blocks/editForm/__name/editForm__name.css);
-@import url(../blocks/editForm/__about/editForm__about.css);
-@import url(../blocks/editForm/__save/editForm__save.css);
-
 @import url(../blocks/places/places.css);
 @import url(../blocks/places/__list/places__list.css);
 
@@ -39,3 +32,8 @@
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/popup/_opened/popup_opened.css);
 @import url(../blocks/popup/__editForm/popup__editForm.css);
+@import url(../blocks/popup/__editForm/_close/popup__editForm_close.css);
+@import url(../blocks/popup/__editForm/_edit/popup__editForm_edit.css);
+@import url(../blocks/popup/__editForm/_name/popup__editForm_name.css);
+@import url(../blocks/popup/__editForm/_about/popup__editForm_about.css);
+@import url(../blocks/popup/__editForm/_save/popup__editForm_save.css);
