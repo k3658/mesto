@@ -1,0 +1,6 @@
+.place {
+  display: grid;
+  max-width: 282px;
+  min-height: 361px;
+  box-sizing: border-box;
+}

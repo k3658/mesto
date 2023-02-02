@@ -1,0 +1,17 @@
+.profile__icon {
+  max-height: 121px;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 768px) {
+  .profile__icon {
+    margin-right: 15px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .profile__icon {
+    margin-right: 30px;
+  }
+}

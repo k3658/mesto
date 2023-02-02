@@ -1,0 +1,26 @@
+.profile__info_edit {
+  background-image: url(../../../../images/edit-mobile.svg);
+  min-width: 20px;
+  min-height: 20px;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+  margin-left: 10px;
+  margin-top: 21px;
+  cursor: pointer;
+}
+
+.profile__info_edit:hover {
+  opacity: 60%;
+}
+
+@media screen and (min-width: 1280px) {
+  .profile__info_edit {
+    background-image: url(../../../../images/edit-desktop.svg);
+    min-width: 24px;
+    min-height: 24px;
+    margin-left: 18px;
+    margin-top: 26px;
+  }
+}

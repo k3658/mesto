@@ -1,0 +1,12 @@
+.place__name_desktop {
+  display: none;
+}
+
+@media screen and (min-width: 1280px) {
+  .place__name_desktop {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}

@@ -1,0 +1,29 @@
+.edit-form__save {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: white;
+  background-color: black;
+  border: 0;
+  border-radius: 2px;
+  margin: 46px 22px 25px;
+  padding: 14px 83px;
+  cursor: pointer;
+}
+
+.edit-form__save:hover {
+  opacity: 80%;
+}
+
+@media screen and (min-width: 1280px) {
+  .edit-form__save {
+    font-size: 18px;
+    line-height: 22px;
+    padding-left: 125px;
+    padding-right: 124px;
+    padding-bottom: 14px;
+    margin: 48px 36px 37px;
+  }
+}

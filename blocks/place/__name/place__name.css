@@ -1,0 +1,15 @@
+.place__name {
+  padding-top: 25px;
+  padding-bottom: 26px;
+  padding-left: 21px;
+  margin: 0;
+}
+
+@media screen and (min-width: 1280px) {
+  .place__name {
+    padding-top: 25px;
+  }
+}
+
+
+
