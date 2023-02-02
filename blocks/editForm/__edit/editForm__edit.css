@@ -1,4 +1,4 @@
-.edit-form__edit {
+.editForm__edit {
   font-size: 18px;
   font-weight: 900;
   line-height: 22px;
@@ -9,7 +9,7 @@
 }
 
 @media screen and (min-width: 1280px) {
-  .edit-form__edit {
+  .editForm__edit {
     font-size: 24px;
     line-height: 29px;
     padding: 34px 64px 49px 36px;

@@ -1,4 +1,4 @@
-.profile__info_name {
+.profile__name {
   font-size: 27px;
   font-weight: 500;
   line-height: 33px;
@@ -12,13 +12,13 @@
 }
 
 @media screen and (min-width: 768px) {
-  .profile__info_name {
+  .profile__name {
     padding-left: 0;
   }
 }
 
 @media screen and (min-width: 1280px) {
-  .profile__info_name {
+  .profile__name {
     font-size: 42px;
     line-height: 48px;
     padding-top: 28px;

@@ -1,25 +1,22 @@
-.edit-form__name {
+.editForm__about {
   font-size: 14px;
   font-weight: 400;
   line-height: 17px;
   letter-spacing: 0em;
   text-align: left;
   color: black;
-  border: 0;
+  border: 0px solid white;
   border-bottom: 1px solid rgba(0, 0, 0, .2);
-  padding: 0;
-  padding-left: 2px;
   padding-bottom: 8px;
-  margin-left: 20px;
-  margin-right: 22px;
+  margin: 30px 20px 0px;
 }
 
-.edit-form__name:focus {
+.editForm__about:focus {
   outline: none;
 }
 
 @media screen and (min-width: 1280px) {
-  .edit-form__name {
+  .editForm__about {
     padding-left: 0;
     margin-left: 36px;
     margin-right: 36px;

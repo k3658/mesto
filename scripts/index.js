@@ -1,6 +1,6 @@
-const editButton = document.querySelector('.profile__info_edit');
+const editButton = document.querySelector('.profile__edit');
 const popup = document.querySelector('.popup');
-const closeButton = document.querySelector('.edit-form__close');
+const closeButton = document.querySelector('.editForm__close');
 
 const toggleOpenPopup = () => {
   popup.classList.toggle('popup_opened');
@@ -19,11 +19,11 @@ const handleCloseButtonClick = () => {
 editButton.addEventListener('click', handleEditButtonClick);
 closeButton.addEventListener('click', handleCloseButtonClick);
 
-const form = document.querySelector('.popup__edit-form');
-let nameInput = document.querySelector('.edit-form__name');
-let nameProfile = document.querySelector('.profile__info_name');
-let aboutInput = document.querySelector('.edit-form__about');
-let aboutProfile = document.querySelector('.profile__info_about');
+const form = document.querySelector('.popup__editForm');
+let nameInput = document.querySelector('.editForm__name');
+let nameProfile = document.querySelector('.profile__name');
+let aboutInput = document.querySelector('.editForm__about');
+let aboutProfile = document.querySelector('.profile__about');
 
 function handleFormSubmit (evt) {
     evt.preventDefault();

@@ -1,4 +1,4 @@
-.profile__info_edit {
+.profile__edit {
   background-image: url(../../../../images/edit-mobile.svg);
   min-width: 20px;
   min-height: 20px;
@@ -11,12 +11,12 @@
   cursor: pointer;
 }
 
-.profile__info_edit:hover {
+.profile__edit:hover {
   opacity: 60%;
 }
 
 @media screen and (min-width: 1280px) {
-  .profile__info_edit {
+  .profile__edit {
     background-image: url(../../../../images/edit-desktop.svg);
     min-width: 24px;
     min-height: 24px;

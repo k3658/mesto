@@ -1,4 +1,4 @@
-.popup__edit-form {
+.popup__editForm {
   display: flex;
   flex-direction: column;
   background-color: white;
@@ -9,7 +9,7 @@
 }
 
 @media screen and (min-width: 1280px) {
-  .popup__edit-form {
+  .popup__editForm {
     min-width: 430px;
     min-height: 330px;
   }

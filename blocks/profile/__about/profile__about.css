@@ -1,4 +1,4 @@
-.profile__info_about {
+.profile__about {
   width: 100%;
   font-size: 14px;
   font-weight: 400;
@@ -11,13 +11,13 @@
 }
 
 @media screen and (min-width: 768px) {
-  .profile__info_about {
+  .profile__about {
     text-align: left;
   }
 }
 
 @media screen and (min-width: 1280px) {
-  .profile__info_about {
+  .profile__about {
     text-align: left;
     font-size: 18px;
     line-height: 22px;
