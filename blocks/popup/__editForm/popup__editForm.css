@@ -1,16 +1,25 @@
 .popup__editForm {
   display: flex;
+  position: relative;
+  top: 123px;
   flex-direction: column;
   background-color: white;
   min-width: 282px;
-  min-height: 322px;
   box-sizing: border-box;
   border-radius: 10px;
+  max-width: 238px;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 768px) {
+  .popup__editForm {
+    top: 210px;
+  }
 }
 
 @media screen and (min-width: 1280px) {
   .popup__editForm {
-    min-width: 430px;
-    min-height: 330px;
+    top: 195px;
+    max-width: 430px;
   }
 }

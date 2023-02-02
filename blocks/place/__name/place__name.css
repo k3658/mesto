@@ -3,6 +3,9 @@
   padding-bottom: 26px;
   padding-left: 21px;
   margin: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 @media screen and (min-width: 1280px) {

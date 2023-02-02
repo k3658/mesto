@@ -1,9 +1,0 @@
-.place__name_mobile {
-  display: block;
-}
-
-@media screen and (min-width: 1280px) {
-  .place__name_mobile {
-    display: none;
-  }
-}

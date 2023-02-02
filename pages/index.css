@@ -20,8 +20,6 @@
 @import url(../blocks/place/__photo/place__photo.css);
 @import url(../blocks/place/__cell/place__cell.css);
 @import url(../blocks/place/__name/place__name.css);
-@import url(../blocks/place/__name/_mobile/plade__name_mobile.css);
-@import url(../blocks/place/__name/_desktop/place__name_desktop.css);
 @import url(../blocks/place/__name/_padding-diff/place__name_padding-diff.css);
 @import url(../blocks/place/__like/place__like.css);
 @import url(../blocks/place/__like/_active/place__like_active.css);
