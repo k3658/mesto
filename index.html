@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,17 +9,18 @@
   </head>
   <body class="page">
     <header class="header">
-      <div class="header__logo"></div>
+      <img class="header__logo header__logo_mobile" src="./images/logo-mobile.svg">
+      <img class="header__logo header__logo_desktop" src="./images/logo-desktop.svg">
     </header>
     <main>
       <section class="profile">
         <img class="profile__icon" src="./images/icon.jpg">
         <div class="profile__info">
           <h1 class="profile__name">Жак-Ив Кусто</h1>
-          <button class="profile__edit" type="button"></button>
+          <button class="profile__edit" aria-label="Редактировать" type="button"></button>
           <p class="profile__about">Исследователь океана</p>
         </div>
-        <button class="profile__add" type="button"></button>
+        <button class="profile__add" aria-label="Добавить" type="button"></button>
       </section>
       <section class="places">
         <ul class="places__list">
@@ -27,42 +28,42 @@
             <img class="place__photo" src="./images/castle.jpg">
             <div class="place__cell">
               <h2 class="place__name">Карачаевск</h2>
-            <button class="place__like" type="button"></button>
+            <button class="place__like" aria-label="Нравится" type="button"></button>
             </div>
           </li>
           <li class="place">
-            <img class="place__photo" src="./images/desert.png">
+            <img class="place__photo" src="./images/desert.jpg">
             <div class="place__cell">
               <h2 class="place__name">Гора Эльбрус</h2>
-              <button class="place__like" type="button"></button>
+              <button class="place__like" aria-label="Нравится" type="button"></button>
             </div>
           </li>
           <li class="place">
-            <img class="place__photo" src="./images/mountains.png">
+            <img class="place__photo" src="./images/mountains.jpg">
             <div class="place__cell">
-              <h2 class="place__name place__name_padding-diff">Домбай</h2>
-              <button class="place__like" type="button"></button>
+              <h2 class="place__name">Домбай</h2>
+              <button class="place__like" aria-label="Like" type="button"></button>
             </div>
           </li>
           <li class="place">
-            <img class="place__photo" src="./images/desert.png">
+            <img class="place__photo" src="./images/desert.jpg">
             <div class="place__cell">
               <h2 class="place__name">Гора Эльбрус</h2>
-              <button class="place__like" type="button"></button>
+              <button class="place__like" aria-label="Нравится" type="button"></button>
             </div>
           </li>
           <li class="place">
-            <img class="place__photo" src="./images/mountains.png">
+            <img class="place__photo" src="./images/mountains.jpg">
             <div class="place__cell">
-              <h2 class="place__name place__name_padding-diff">Домбай</h2>
-              <button class="place__like" type="button"></button>
+              <h2 class="place__name">Домбай</h2>
+              <button class="place__like" aria-label="Нравится" type="button"></button>
             </div>
           </li>
           <li class="place">
             <img class="place__photo" src="./images/castle.jpg">
             <div class="place__cell">
               <h2 class="place__name">Карачаево-Черкессия</h2>
-              <button class="place__like" type="button"></button>
+              <button class="place__like" aria-label="Нравится" type="button"></button>
             </div>
           </li>
         </ul>
@@ -71,15 +72,17 @@
     <footer class="footer">
       <p class="footer__copyright">© 2020 Mesto Russia</p>
     </footer>
-    <section class="popup">
-      <form class="popup__editForm">
-        <button class="popup__close" type="reset"></button>
-        <h2 class="popup__edit">Редактировать профиль</h2>
-        <input class="popup__name" type="text" placeholder="Имя" maxlength="15">
-        <input class="popup__about" type="text" placeholder="О себе" maxlength="45">
-        <button class="popup__save" type="submit">Сохранить</button>
-      </form>
-    </section>
+    <div class="popup">
+      <div class="popup__container">
+        <form class="popup__edit-form" name="edit-form">
+          <button class="popup__close" aria-label="Закрыть" type="button"></button>
+          <h2 class="popup__edit">Редактировать профиль</h2>
+          <input class="popup__input popup__input_name" name="name" type="text" placeholder="Имя" maxlength="15">
+          <input class="popup__input popup__input_about" name="about" type="text" placeholder="О себе" maxlength="34">
+          <button class="popup__save" aria-label="Сохранить" type="submit">Сохранить</button>
+        </form>
+    </div>
+    </div>
     <script src="./scripts/index.js"></script>
   </body>
 </html>

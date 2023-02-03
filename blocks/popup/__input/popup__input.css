@@ -1,8 +1,8 @@
-.popup__name {
+.popup__input {
+  width: 238px;
   font-size: 14px;
   font-weight: 400;
   line-height: 17px;
-  letter-spacing: 0em;
   text-align: left;
   color: black;
   border: 0;
@@ -12,14 +12,21 @@
   padding-bottom: 8px;
   margin-left: 20px;
   margin-right: 22px;
+  margin-bottom: 30px;
+  box-sizing: border-box;
 }
 
-.popup__name:focus {
+.popup__input:nth-of-type(2) {
+  margin-bottom: 0;
+}
+
+.popup__input:focus {
   outline: none;
 }
 
 @media screen and (min-width: 1280px) {
-  .popup__name {
+  .popup__input {
+    width: 358px;
     padding-left: 0;
     margin-left: 36px;
     margin-right: 36px;

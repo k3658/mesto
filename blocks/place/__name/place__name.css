@@ -8,11 +8,4 @@
   text-overflow: ellipsis;
 }
 
-@media screen and (min-width: 1280px) {
-  .place__name {
-    padding-top: 25px;
-  }
-}
-
-
 

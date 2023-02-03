@@ -1,0 +1,10 @@
+.header__logo_mobile {
+  min-width: 104px;
+  min-height: 25px;
+}
+
+@media screen and (min-width: 1024px) {
+  .header__logo_mobile {
+    display: none;
+  }
+}

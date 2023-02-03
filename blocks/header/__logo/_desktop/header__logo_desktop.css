@@ -1,0 +1,11 @@
+.header__logo_desktop {
+  display: none;
+}
+
+@media screen and (min-width: 1024px) {
+  .header__logo_desktop {
+    display: inline;
+    max-width: 142px;
+    min-height: 33px;
+  }
+}

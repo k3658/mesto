@@ -14,12 +14,6 @@
 
 @media screen and (min-width: 1024px) {
   .profile {
-    max-width: 886px;
-  }
-}
-
-@media screen and (min-width: 1280px) {
-  .profile {
     max-width: 880px;
   }
 }
