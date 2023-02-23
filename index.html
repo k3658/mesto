@@ -22,65 +22,50 @@
         <button class="profile__add" aria-label="Добавить" type="button"></button>
       </section>
       <section class="places">
-        <ul class="places__list">
-          <li class="place">
-            <img class="place__photo" src="./images/castle.jpg" alt="Картинка карточки">
-            <div class="place__cell">
-              <h2 class="place__name">Карачаевск</h2>
-            <button class="place__like" aria-label="Нравится" type="button"></button>
-            </div>
-          </li>
-          <li class="place">
-            <img class="place__photo" src="./images/desert.jpg" alt="Картинка карточки">
-            <div class="place__cell">
-              <h2 class="place__name">Гора Эльбрус</h2>
-              <button class="place__like" aria-label="Нравится" type="button"></button>
-            </div>
-          </li>
-          <li class="place">
-            <img class="place__photo" src="./images/mountains.jpg" alt="Картинка карточки">
-            <div class="place__cell">
-              <h2 class="place__name">Домбай</h2>
-              <button class="place__like" aria-label="Like" type="button"></button>
-            </div>
-          </li>
-          <li class="place">
-            <img class="place__photo" src="./images/desert.jpg" alt="Картинка карточки">
-            <div class="place__cell">
-              <h2 class="place__name">Гора Эльбрус</h2>
-              <button class="place__like" aria-label="Нравится" type="button"></button>
-            </div>
-          </li>
-          <li class="place">
-            <img class="place__photo" src="./images/mountains.jpg" alt="Картинка карточки">
-            <div class="place__cell">
-              <h2 class="place__name">Домбай</h2>
-              <button class="place__like" aria-label="Нравится" type="button"></button>
-            </div>
-          </li>
-          <li class="place">
-            <img class="place__photo" src="./images/castle.jpg" alt="Картинка карточки">
-            <div class="place__cell">
-              <h2 class="place__name">Карачаево-Черкессия</h2>
-              <button class="place__like" aria-label="Нравится" type="button"></button>
-            </div>
-          </li>
-        </ul>
+        <ul class="places__list"></ul>
       </section>
     </main>
     <footer class="footer">
       <p class="footer__copyright">© 2020 Mesto Russia</p>
     </footer>
-    <div class="popup">
+    <template id="place-template">
+      <li class="place">
+        <img class="place__photo">
+        <button class="place__delete" aria-label="Удалить" type="button"></button>
+        <div class="place__cell">
+          <h2 class="place__name"></h2>
+        <button class="place__like" aria-label="Нравится" type="button"></button>
+        </div>
+      </li>
+    </template>
+    <div class="popup popup_type_profile">
       <div class="popup__container">
         <form class="popup__edit-form" name="edit-form">
           <button class="popup__close" aria-label="Закрыть" type="button"></button>
-          <h2 class="popup__edit">Редактировать профиль</h2>
+          <h2 class="popup__title">Редактировать профиль</h2>
           <input class="popup__input popup__input_field_name" name="name" type="text" placeholder="Имя" maxlength="15">
           <input class="popup__input popup__input_field_about" name="about" type="text" placeholder="О себе" maxlength="34">
           <button class="popup__save" aria-label="Сохранить" type="submit">Сохранить</button>
         </form>
     </div>
+    </div>
+    <div class="popup popup_type_place">
+      <div class="popup__container">
+        <form class="popup__add-form" name="add-form">
+          <button class="popup__close" aria-label="Закрыть" type="button"></button>
+          <h2 class="popup__title">Новое место</h2>
+          <input class="popup__input popup__input_field_title" name="title" type="text" placeholder="Название">
+          <input class="popup__input popup__input_field_link" name="link" type="url" placeholder="Ссылка на картинку">
+          <button class="popup__make" aria-label="Сохранить" type="submit">Создать</button>
+        </form>
+        </div>
+    </div>
+    <div class="popup popup_type_photo">
+      <figure class="popup__figure">
+        <button class="popup__close" aria-label="Закрыть" type="button"></button>
+        <img class="popup__photo">
+        <p class="popup__caption"></p>
+      </figure>
     </div>
     <script src="./scripts/index.js"></script>
   </body>
