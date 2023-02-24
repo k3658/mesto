@@ -1,5 +1,3 @@
-const popup = document.querySelector('.popup');
-
 const profilePopup = document.querySelector('.popup_type_profile');
 const profileForm = document.forms['profile-form'];
 const profileNameInput = document.querySelector('.popup__input_field_name');
@@ -94,7 +92,7 @@ const createCard = (item) => {
   const cardsElement = cardsTemplate.querySelector('.place').cloneNode(true);
 
   const photo = cardsElement.querySelector('.place__photo');
-  const title = cardsElement.querySelector('.place__name').textContent = item.name;
+  cardsElement.querySelector('.place__name').textContent = item.name;
   photo.src = item.link;
   photo.alt = item.name;
 
@@ -124,7 +122,6 @@ const createCard = (item) => {
 
 /* adds cards template */
 initialCards.forEach((item) => {
-  const cardsElement = createCard(item);
   cardsContainer.append(createCard(item));
 })
 
