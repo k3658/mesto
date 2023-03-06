@@ -1,4 +1,7 @@
-.popup__make {
+.form__button {
+  width: 100%;
+  max-width: 238px;
+  height: 50px;
   font-size: 14px;
   font-weight: 400;
   line-height: 17px;
@@ -8,22 +11,20 @@
   background-color: black;
   border: 0;
   border-radius: 2px;
-  margin: 45px 22px 25px;
-  padding: 14px 91px;
+  padding: 0;
+  margin: 15px 22px 21px;
   cursor: pointer;
 }
 
-.popup__make:hover {
+.form__button:hover:not([disabled]) {
   opacity: 80%;
 }
 
 @media screen and (min-width: 1280px) {
-  .popup__make {
+  .form__button {
+    max-width: 358px;
     font-size: 18px;
     line-height: 22px;
-    padding-left: 141px;
-    padding-right: 145px;
-    padding-bottom: 14px;
-    margin: 48px 36px 37px;
+    margin: 18px 36px 36px;
   }
 }

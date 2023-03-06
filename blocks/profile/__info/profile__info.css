@@ -10,6 +10,19 @@
 
 @media screen and (min-width: 768px) {
   .profile__info {
+    min-width: 299px;
     justify-content: flex-start;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .profile__info {
+    min-width: 373px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .profile__info {
+    min-width: 537px;
   }
 }

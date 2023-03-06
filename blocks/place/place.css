@@ -1,6 +1,6 @@
 .place {
   display: grid;
   position: relative;
-  max-width: 282px;
+  min-width: 282px;
   box-sizing: border-box;
 }
