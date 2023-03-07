@@ -22,12 +22,17 @@ const enableValidation = (config) => {
 
 const enableFormValidation = (form, config) => {
   form.addEventListener('submit', disableSubmit);
-    form.addEventListener('input', () => {
-      toggleSubmitButton(form, config);
-    });
-
-    addInputListeners(form, config);
+  form.addEventListener('input', () => {
     toggleSubmitButton(form, config);
+  });
+  form.addEventListener('reset', () => {
+    setTimeout(() => {
+      toggleSubmitButton(form, config);
+    }, 0);
+  });
+
+  addInputListeners(form, config);
+  toggleSubmitButton(form, config);
 };
 
 /** checks inputs validity */
@@ -63,6 +68,7 @@ const toggleSubmitButton = (form, config) => {
   submitButton.disabled = !isFormValid;
   submitButton.classList.toggle('form__button_disabled', !isFormValid);
 };
+
 
 enableValidation(formValidationConfig);
 

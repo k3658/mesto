@@ -23,18 +23,13 @@ const openPopupPhoto = () => {
 /** closes popups */
 const closePopup = (popup) => {
   popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closePopupEscape);
 };
 
-const closeButtons = document.querySelectorAll('.popup__close');
-closeButtons.forEach((button) => {
-  const popup = button.closest('.popup');
-  button.addEventListener('click', () => closePopup(popup));
-});
-
-const closePopupOverlayClick = document.querySelectorAll('.popup');
-closePopupOverlayClick.forEach((popup) => {
+const popups = document.querySelectorAll('.popup');
+popups.forEach((popup) => {
   popup.addEventListener('click', (evt) => {
-    if (evt.target === evt.currentTarget || evt.target.classList.contains('.popup__close')) {
+    if (evt.target === evt.currentTarget || evt.target.classList.contains('popup__close')) {
       closePopup(evt.currentTarget);
     }
   });
