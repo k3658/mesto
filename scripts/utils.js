@@ -60,4 +60,5 @@ export { photoPopup };
 
 //expotring into index.js
 export { profilePopup, cardsPopup,
+  openPopupPhoto,
   closePopup, closePopupEscape };

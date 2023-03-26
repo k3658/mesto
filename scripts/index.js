@@ -1,11 +1,12 @@
 import { profilePopup, cardsPopup,
+  openPopupPhoto,
   closePopup } from './utils.js';
 
 import { Card } from './card.js';
 
 import { formValidationConfig, FormValidator } from './formValidator.js';
 
-//POPUP PROFILE RELATED VARIABLES
+// POPUP PROFILE RELATED VARIABLES
 const profileForm = document.forms['form-profile'];
 
 const profileNameInput = document.querySelector('.form__input_field_name');
@@ -13,7 +14,7 @@ const nameProfile = document.querySelector('.profile__name');
 const profileAboutInput = document.querySelector('.form__input_field_about');
 const aboutProfile = document.querySelector('.profile__about');
 
-//POPUP CARDS RELATED VARIABLES
+// POPUP CARDS RELATED VARIABLES
 const cardsForm = document.forms['form-cards'];
 
 const cardsTitleInput = document.querySelector('.form__input_field_title');
@@ -48,13 +49,36 @@ const initialCards = [
   }
 ];
 
-//POPUP PHOTO RELATED VARIABLES
+// POPUP PHOTO RELATED VARIABLES
 const fullPhotoPopup = document.querySelector('.popup__photo');
 const fullPhotoCaptionPopup = document.querySelector('.popup__caption');
 
+//VALIDATION
+const formValidators = {}
 
-// PROFILE POPUP RELATED
-/**saves profile form info */
+const enableValidation = (formValidationConfig) => {
+  const formList = Array.from(document.querySelectorAll(formValidationConfig.formSelector))
+  formList.forEach((form) => {
+    const validator = new FormValidator(formValidationConfig, form);
+    const formName = form.getAttribute('name');
+
+    formValidators[formName] = validator;
+    validator.enableValidation();
+  });
+};
+
+enableValidation(formValidationConfig);
+
+// POPUP PHOTO RELATED
+const handleOpenPopupPhoto = (link, name) => {
+  fullPhotoPopup.src = link;
+  fullPhotoPopup.alt = name;
+  fullPhotoCaptionPopup.textContent = name;
+
+  openPopupPhoto();
+}
+
+// POPUP PROFILE  RELATED
 const handleFormProfileSubmit = (evt) => {
   evt.preventDefault();
 
@@ -64,15 +88,22 @@ const handleFormProfileSubmit = (evt) => {
   closePopup(profilePopup);
 };
 
-//enables validation
-const profileValidation = new FormValidator(formValidationConfig, profileForm);
-profileValidation.enableValidation();
-
 profileForm.addEventListener('submit', handleFormProfileSubmit);
 
-// CARDS POPUP RELATED
-const cards = new Card(initialCards);
-cards._renderCards();
+// POPUP CARDS RELATED
+const createCard = (item) => {
+  const cardTemplate = new Card(item, '#place-template', handleOpenPopupPhoto);
+  const card = cardTemplate.generateCard();
+  return card;
+};
+
+const renderCards = (item) => {
+  cardsContainer.prepend(item);
+};
+
+initialCards.forEach((item) => {
+  renderCards(createCard(item));
+});
 
 const handleFormCardSubmit = (evt) => {
   evt.preventDefault();
@@ -81,20 +112,13 @@ const handleFormCardSubmit = (evt) => {
     name: cardsTitleInput.value,
     link: cardsLinkInput.value
   };
-  const cardTemplate = new Card(newCard);
-  const card = cardTemplate.generateCard();
-  cardsContainer.prepend(card);
 
+  renderCards(createCard(newCard));
   evt.target.reset();
   closePopup(cardsPopup);
 };
 
-//enables validation
-const formCardValidation = new FormValidator(formValidationConfig, cardsForm);
-formCardValidation.enableValidation();
-
 cardsForm.addEventListener('submit', handleFormCardSubmit);
-
 
 //exporting into utils.js
 export { nameProfile, profileNameInput, aboutProfile, profileAboutInput };
