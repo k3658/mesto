@@ -1,13 +1,4 @@
-import  { nameProfile, profileNameInput, aboutProfile, profileAboutInput } from './index.js';
-
-//POPUPS
-const profilePopup = document.querySelector('.popup_type_profile');
-const cardsPopup = document.querySelector('.popup_type_cards');
-const photoPopup = document.querySelector('.popup_type_photo');
-
-//BUTTONS
-const buttonEditProfile = document.querySelector('.profile__edit');
-const buttonAddCards = document.querySelector('.profile__add');
+import  { nameProfile, profileNameInput, aboutProfile, profileAboutInput } from './constants.js';
 
 /** opens popups */
 const openPopup = (popup) => {
@@ -55,10 +46,6 @@ const closePopupEscape = (evt) => {
 buttonEditProfile.addEventListener('click', openPopupProfile);
 buttonAddCards.addEventListener('click', openPopupCards);
 
-//exporting into card.js
-export { photoPopup };
 
 //expotring into index.js
-export { profilePopup, cardsPopup,
-  openPopupPhoto,
-  closePopup, closePopupEscape };
+export { openPopupPhoto, closePopup, closePopupEscape };

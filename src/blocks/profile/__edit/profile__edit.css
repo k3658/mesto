@@ -1,5 +1,5 @@
 .profile__edit {
-  background-image: url(../../../images/edit-mobile.svg);
+  background-image: url(../../../../src/images/edit-mobile.svg);
   min-width: 20px;
   min-height: 20px;
   background-repeat: no-repeat;
@@ -17,7 +17,7 @@
 
 @media screen and (min-width: 1280px) {
   .profile__edit {
-    background-image: url(../../../images/edit-desktop.svg);
+    background-image: url(../../../../src/images/edit-desktop.svg);
     min-width: 24px;
     min-height: 24px;
     margin-left: 18px;

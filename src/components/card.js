@@ -1,8 +1,3 @@
-import { initialCards, cardsContainer,
-  fullPhotoPopup, fullPhotoCaptionPopup } from './index.js';
-
-import { photoPopup } from './utils.js';
-
 class Card {
   constructor(item, templateSelector, handleOpenPopupPhoto) {
     this._name = item.name;

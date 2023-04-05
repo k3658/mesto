@@ -1,11 +1,3 @@
-const formValidationConfig = {
-  formSelector: '.form',
-  inputSelector: '.form__input',
-  submitButtonSelector: '.form__button',
-  disabledButtonClass: 'form__button_disabled',
-  inputErrorClass: 'form__input_error'
-};
-
 class FormValidator {
   constructor(obj, form) {
     this._form = form;
@@ -62,5 +54,5 @@ class FormValidator {
 };
 
 //exporting into index.js
-export { formValidationConfig, FormValidator };
+export { FormValidator };
 

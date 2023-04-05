@@ -1,6 +1,6 @@
 .place__like {
   display: block;
-  background-image: url(../../../images/like.svg);
+  background-image: url(../../../../src/images/like.svg);
   background-repeat: no-repeat;
   background-color: transparent;
   border: 0;
