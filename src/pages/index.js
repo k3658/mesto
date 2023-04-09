@@ -11,7 +11,6 @@ import { UserInfo } from '../components/UserInfo';
 import { PopupWithImage } from '../components/PopupWithImage';
 import { Card } from '../components/Card.js';
 import { FormValidator } from '../components/FormValidator.js';
-import { data } from 'autoprefixer';
 
 //VALIDATION
 const formValidators = {};
@@ -40,7 +39,7 @@ imagePopup.setEventListeners();
 
 // POPUP PROFILE RELATED
 const popupFormProfile = new PopupWithForm({
-  popupSelector: profilePopup,
+  popup: profilePopup,
   submitHandler: (data) => {
     userInfo.setUserInfo(data);
   }});
@@ -80,7 +79,7 @@ const initialCardsList = new Section({
 initialCardsList.renderer();
 
 const popupFormCard = new PopupWithForm({
-  popupSelector: cardsPopup,
+  popup: cardsPopup,
   submitHandler: (item) => {
     const newCard = createCard(item, '#place-template', handleCardClick);
     renderCards(newCard);

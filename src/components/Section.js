@@ -6,7 +6,7 @@ class Section {
   }
 
   addItem(item) {
-    this._container.append(item);
+    this._container.prepend(item);
   }
 
   renderer() {
