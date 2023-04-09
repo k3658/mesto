@@ -4,13 +4,17 @@ import { profilePopup, profileForm, profileNameInput, nameProfile, profileAboutI
   photoPopup, fullPhotoPopup, fullPhotoCaptionPopup,
   formValidationConfig,
   buttonEditProfile, buttonAddCards } from '../utils/constants.js';
-import {openPopupPhoto, closePopup } from '../utils/utils.js';
-import { Card } from '../components/card.js';
-import { FormValidator } from '../components/formValidator.js';
-
+import { Section } from '../components/Section';
+import { Popup } from '../components/Popup';
+import { PopupWithForm } from '../components/PopupWithForm';
+import { UserInfo } from '../components/UserInfo';
+import { PopupWithImage } from '../components/PopupWithImage';
+import { Card } from '../components/Card.js';
+import { FormValidator } from '../components/FormValidator.js';
+import { data } from 'autoprefixer';
 
 //VALIDATION
-const formValidators = {}
+const formValidators = {};
 
 const enableValidation = (formValidationConfig) => {
   const formList = Array.from(document.querySelectorAll(formValidationConfig.formSelector))
@@ -26,54 +30,64 @@ const enableValidation = (formValidationConfig) => {
 enableValidation(formValidationConfig);
 
 // POPUP PHOTO RELATED
-const handleOpenPopupPhoto = (link, name) => {
-  fullPhotoPopup.src = link;
-  fullPhotoPopup.alt = name;
-  fullPhotoCaptionPopup.textContent = name;
+const imagePopup = new PopupWithImage(photoPopup);
 
-  openPopupPhoto();
-}
-
-// POPUP PROFILE  RELATED
-const handleFormProfileSubmit = (evt) => {
-  evt.preventDefault();
-
-  nameProfile.textContent = profileNameInput.value;
-  aboutProfile.textContent = profileAboutInput.value;
-
-  closePopup(profilePopup);
+const handleCardClick = (title, link) => {
+  imagePopup.open(title, link);
 };
 
-profileForm.addEventListener('submit', handleFormProfileSubmit);
+imagePopup.setEventListeners();
 
-// POPUP CARDS RELATED
-const createCard = (item) => {
-  const cardTemplate = new Card(item, '#place-template', handleOpenPopupPhoto);
-  const card = cardTemplate.generateCard();
-  return card;
-};
+// POPUP PROFILE RELATED
+const popupFormProfile = new PopupWithForm({
+  popupSelector: profilePopup,
+  submitHandler: (data) => {
+    userInfo.setUserInfo(data);
+  }});
 
-const renderCards = (item) => {
-  cardsContainer.prepend(item);
-};
-
-initialCards.forEach((item) => {
-  renderCards(createCard(item));
+const userInfo = new UserInfo({
+  usermameSelector: '.profile__name',
+  aboutUserSelector: '.profile__about'
 });
 
-const handleFormCardSubmit = (evt) => {
-  evt.preventDefault();
+buttonEditProfile.addEventListener('click', () => {
+  popupFormProfile.open();
+  const { name, about } = userInfo.getUserInfo();
+  profileForm.name.value = name;
+  profileForm.about.value = about;
+});
 
-  const newCard = {
-    name: cardsTitleInput.value,
-    link: cardsLinkInput.value
-  };
+popupFormProfile.setEventListeners();
 
-  renderCards(createCard(newCard));
-  evt.target.reset();
-  closePopup(cardsPopup);
+// POPUP CARDS RELATED
+const createCard = (item, templateSelector, handleCardClick) => {
+  const card = new Card(item, templateSelector, handleCardClick);
+  return card.generateCard();
 };
 
-cardsForm.addEventListener('submit', handleFormCardSubmit);
+const renderCards = (cardElement) => {
+  cardsContainer.prepend(cardElement);
+};
 
+const initialCardsList = new Section({
+  items: initialCards,
+  renderer: (item) => {
+    const initials = createCard(item, '#place-template', handleCardClick);
+    initialCardsList.addItem(initials);
+  }
+}, cardsContainer);
 
+initialCardsList.renderer();
+
+const popupFormCard = new PopupWithForm({
+  popupSelector: cardsPopup,
+  submitHandler: (item) => {
+    const newCard = createCard(item, '#place-template', handleCardClick);
+    renderCards(newCard);
+  }});
+
+buttonAddCards.addEventListener('click', () => {
+  popupFormCard.open();
+});
+
+popupFormCard.setEventListeners();
