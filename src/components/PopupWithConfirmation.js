@@ -3,7 +3,7 @@ import { Popup } from './Popup.js';
 class PopupWithConfirmation extends Popup {
   constructor(popup, handleDeleteCard) {
     super(popup);
-    this._confrimButton = this._popup.querySelector('.form__button');
+    this._confrimButton = this._popup.querySelector('.popup__button');
     this._handleDeleteCard = handleDeleteCard;
   }
 

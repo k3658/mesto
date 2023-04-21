@@ -69,7 +69,6 @@ const formValidationConfig = {
 const buttonEditProfile = document.querySelector('.profile__edit');
 const buttonAddCards = document.querySelector('.profile__add');
 
-
 //exporting into index.js
 export { profilePopup, profileForm, profileNameInput, nameProfile, profileAboutInput, aboutProfile,
 avatarPopup, avatarForm, avatar,
