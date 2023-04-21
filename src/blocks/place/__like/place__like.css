@@ -7,17 +7,10 @@
   min-width: 23px;
   min-height: 19px;
   padding: 0;
-  margin-right: 19px;
+  margin: 0;
   cursor: pointer;
 }
 
 .place__like:hover {
   opacity: 50%;
-}
-
-@media screen and (min-width: 1280px) {
-  .place__like {
-    margin-top: 4px;
-    margin-bottom: 3px;
-  }
 }

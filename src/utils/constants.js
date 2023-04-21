@@ -7,6 +7,12 @@ const nameProfile = document.querySelector('.profile__name');
 const profileAboutInput = document.querySelector('.form__input_field_about');
 const aboutProfile = document.querySelector('.profile__about');
 
+// POPUP AVATAR RELATED VARIABLES
+const avatarPopup = document.querySelector('.popup_type_avatar');
+const avatarForm = document.forms['form-avatar'];
+
+const avatar = document.querySelector('.profile__icon');
+
 // POPUP CARDS RELATED VARIABLES
 const cardsPopup = document.querySelector('.popup_type_cards');
 const cardsForm = document.forms['form-cards'];
@@ -17,37 +23,40 @@ const cardsLinkInput = document.querySelector('.form__input_field_link');
 
 const initialCards = [
   {
-    title: 'Архыз',
+    name: 'Архыз',
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
   },
   {
-    title: 'Челябинская область',
+    name: 'Челябинская область',
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
   },
   {
-    title: 'Иваново',
+    name: 'Иваново',
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
   },
   {
-    title: 'Камчатка',
+    name: 'Камчатка',
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
   },
   {
-    title: 'Холмогорский район',
+    name: 'Холмогорский район',
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
   },
   {
-    title: 'Байкал',
+    name: 'Байкал',
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
   }
 ];
+
+// POPUP DELETE RELATED VARIABLES
+const deleteCardPopup = document.querySelector('.popup_type_delete');
 
 // POPUP PHOTO RELATED VARIABLES
 const photoPopup = document.querySelector('.popup_type_photo');
 const fullPhotoPopup = document.querySelector('.popup__photo');
 const fullPhotoCaptionPopup = document.querySelector('.popup__caption');
 
-//VALIDATION
+// VALIDATION
 const formValidationConfig = {
   formSelector: '.form',
   inputSelector: '.form__input',
@@ -56,13 +65,16 @@ const formValidationConfig = {
   inputErrorClass: 'form__input_error'
 };
 
-//BUTTONS
+// BUTTONS
 const buttonEditProfile = document.querySelector('.profile__edit');
 const buttonAddCards = document.querySelector('.profile__add');
 
+
 //exporting into index.js
 export { profilePopup, profileForm, profileNameInput, nameProfile, profileAboutInput, aboutProfile,
+avatarPopup, avatarForm, avatar,
 cardsPopup, cardsForm, cardsContainer, cardsTitleInput, cardsLinkInput, initialCards,
+deleteCardPopup,
 photoPopup, fullPhotoPopup, fullPhotoCaptionPopup,
 formValidationConfig,
 buttonEditProfile, buttonAddCards }

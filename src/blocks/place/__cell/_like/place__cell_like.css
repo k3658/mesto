@@ -1,0 +1,7 @@
+.place__cell_like {
+  display: flex;
+  flex-direction: column;
+  margin-right: 19px;
+  margin-top: 22px;
+  margin-bottom: 22px;
+}

@@ -7,12 +7,12 @@ class PopupWithImage extends Popup {
     this._fullPhotoCaption = this._popup.querySelector('.popup__caption');
   }
 
-  open(title, link) {
+  open(name, link) {
     super.open();
 
     this._fullPhoto.src = link;
-    this._fullPhoto.alt = title;
-    this._fullPhotoCaption.textContent = title;
+    this._fullPhoto.alt = name;
+    this._fullPhotoCaption.textContent = name;
   };
 }
 
