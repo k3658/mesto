@@ -6,7 +6,7 @@ import { profilePopup, profileForm, profileNameInput, nameProfile, profileAboutI
   photoPopup, fullPhotoPopup, fullPhotoCaptionPopup,
   formValidationConfig,
   buttonEditProfile, buttonAddCards } from '../utils/constants.js';
-import { api } from '../components/Api.js';
+import { Api } from '../components/Api.js';
 import { Section } from '../components/Section';
 import { Popup } from '../components/Popup';
 import { PopupWithForm } from '../components/PopupWithForm';
@@ -15,6 +15,18 @@ import { PopupWithImage } from '../components/PopupWithImage';
 import { Card } from '../components/Card.js';
 import { PopupWithConfirmation } from '../components/PopupWithConfirmation.js';
 import { FormValidator } from '../components/FormValidator.js';
+import { info } from 'autoprefixer';
+
+// API
+const apiConfig = {
+  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-64',
+  headers: {
+    authorization: '0f03367f-2da2-4dcf-b5ff-2d3e57bc8d8b',
+    'Content-Type': 'application/json'
+  }
+}
+
+const api = new Api(apiConfig);
 
 // VALIDATION
 const formValidators = {};
@@ -32,23 +44,6 @@ const enableValidation = (formValidationConfig) => {
 
 enableValidation(formValidationConfig);
 
-// UX/LOADING
-const renderLoading = (isLoading, submitButton) => {
-  if (isLoading) {
-    if (submitButton.textContent.length >= 9) {
-        submitButton.textContent = 'Сохранение...';
-    } else {
-        submitButton.textContent = 'Создание...';
-    }
-  } else {
-      if (submitButton.textContent.length >= 12) {
-          submitButton.textContent = 'Сохранить';
-      } else {
-          submitButton.textContent = 'Создать';
-      }
-  }
-}
-
 // POPUP PHOTO RELATED
 const imagePopup = new PopupWithImage(photoPopup);
 
@@ -62,16 +57,17 @@ imagePopup.setEventListeners();
 const popupFormProfile = new PopupWithForm({
   popup: profilePopup,
   submitHandler: (data) => {
-    renderLoading(true, profileForm.querySelector('.form__button'));
     api.setUserData(data)
     .then(() => {
       userInfo.setUserInfo(data);
+      popupFormProfile.renderLoading(true);
+      popupFormProfile.close();
     })
     .catch((err) => {
       console.log(err);
     })
     .finally(() => {
-      renderLoading(false, profileForm.querySelector('.form__button'));
+      popupFormProfile.renderLoading(false);
     })
   }
 });
@@ -109,16 +105,17 @@ popupFormProfile.setEventListeners();
 const popupFormAvatar = new PopupWithForm({
   popup: avatarPopup,
   submitHandler: (data) => {
-    renderLoading(true, avatarForm.querySelector('.form__button'));
     api.updateAvatar(data)
     .then(() => {
       avatar.src = data.avatar;
+      popupFormAvatar.renderLoading(true);
+      popupFormAvatar.close();
     })
     .catch((err) => {
       console.log(err);
     })
     .finally(() => {
-      renderLoading(false, avatarForm.querySelector('.form__button'));
+      popupFormAvatar.renderLoading(false);
     })
   }
 });
@@ -156,18 +153,19 @@ Promise.all([userData, initials])
 const popupFormCard = new PopupWithForm({
   popup: cardsPopup,
   submitHandler: (item) => {
-    renderLoading(true, cardsForm.querySelector('.form__button'));
     const card = api.postNewCard(item)
     Promise.all([userData, card])
     .then(([infoUser, infoCard]) => {
       const newCard = createCard(infoUser._id, infoCard);
       initialCardsList.addItem(newCard);
+      popupFormCard.renderLoading(true);
+      popupFormCard.close();
     })
     .catch((err) => {
       console.log(err);
     })
     .finally(() => {
-      renderLoading(false, cardsForm.querySelector('.form__button'));
+      popupFormCard.renderLoading(false);
     })
   }
 });
@@ -179,10 +177,10 @@ buttonAddCards.addEventListener('click', () => {
 popupFormCard.setEventListeners();
 
 // POPUP DELETE CONFIRMATION RELATED
-const handleDeleteCard = (cardElement, id) => {
-  api.deleteCard(id)
+const handleDeleteCard = (card) => {
+  api.deleteCard(card._cardId)
   .then(() => {
-    cardElement._handleDeleteCard();
+    card._handleDeleteCard();
     popupDeleteConfirmation.close();
   })
   .catch((err) => {
@@ -192,9 +190,9 @@ const handleDeleteCard = (cardElement, id) => {
 
 const popupDeleteConfirmation = new PopupWithConfirmation(deleteCardPopup, handleDeleteCard);
 
-const openPopupDeleteConfirmation = (cardElement, id) => {
+const openPopupDeleteConfirmation = (card) => {
   popupDeleteConfirmation.open();
-  popupDeleteConfirmation.handleConfirmButtonClick(cardElement, id);
+  popupDeleteConfirmation.getValues(card);
 };
 
 popupDeleteConfirmation.setEventListeners();
@@ -204,6 +202,10 @@ const handleLikeCard = (cardElement, counter) => {
   api.likeCard(cardElement)
   .then((res) => {
     counter.textContent = res.likes.length;
+    console.log(res.likes);
+    res.likes.forEach((user) => {
+      user._id;
+    })
   })
   .catch((err) => {
     console.log(err);

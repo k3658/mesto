@@ -1,6 +1,7 @@
 class Api {
-  constructor(settings) {
-    this._settings = settings;
+  constructor(config) {
+    this._baseUrl = config.baseUrl;
+    this._headers = config.headers;
   }
 
   _statusCheck(res) {
@@ -12,21 +13,16 @@ class Api {
   }
 
   getUserData() {
-    return fetch('https://mesto.nomoreparties.co/v1/cohort-64/users/me', {
-      headers: {
-        authorization: '0f03367f-2da2-4dcf-b5ff-2d3e57bc8d8b'
-      }
+    return fetch(`${this._baseUrl}/users/me`, {
+      headers: this._headers
     })
     .then(this._statusCheck);
   }
 
   setUserData(data) {
-    return fetch('https://mesto.nomoreparties.co/v1/cohort-64/users/me', {
+    return fetch(`${this._baseUrl}/users/me`, {
       method: 'PATCH',
-      headers: {
-        authorization: '0f03367f-2da2-4dcf-b5ff-2d3e57bc8d8b',
-        'Content-Type': 'application/json'
-      },
+      headers: this._headers,
       body: JSON.stringify({
         name: data.name,
         about: data.about
@@ -36,12 +32,9 @@ class Api {
   }
 
   updateAvatar(data) {
-    return fetch('https://mesto.nomoreparties.co/v1/cohort-64/users/me/avatar', {
+    return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: 'PATCH',
-      headers: {
-        authorization: '0f03367f-2da2-4dcf-b5ff-2d3e57bc8d8b',
-        'Content-Type': 'application/json'
-      },
+      headers: this._headers,
       body: JSON.stringify({
         avatar: data.avatar
       })
@@ -50,21 +43,16 @@ class Api {
   }
 
   getInitialCards() {
-    return fetch('https://mesto.nomoreparties.co/v1/cohort-64/cards', {
-      headers: {
-        authorization: '0f03367f-2da2-4dcf-b5ff-2d3e57bc8d8b'
-      }
+    return fetch(`${this._baseUrl}/cards`, {
+      headers: this._headers
     })
     .then(this._statusCheck);
   }
 
   postNewCard(item) {
-    return fetch('https://mesto.nomoreparties.co/v1/cohort-64/cards', {
+    return fetch(`${this._baseUrl}/cards`, {
       method: 'POST',
-      headers: {
-        authorization: '0f03367f-2da2-4dcf-b5ff-2d3e57bc8d8b',
-        'Content-Type': 'application/json'
-      },
+      headers: this._headers,
       body: JSON.stringify({
         name: item.title,
         link: item.link
@@ -74,41 +62,29 @@ class Api {
   }
 
   deleteCard(cardId) {
-    return fetch(`https://mesto.nomoreparties.co/v1/cohort-64/cards/${cardId}`, {
+    return fetch(`${this._baseUrl}/cards/${cardId}`, {
       method: 'DELETE',
-      headers: {
-        authorization: '0f03367f-2da2-4dcf-b5ff-2d3e57bc8d8b'
-      }
+      headers: this._headers
     })
     .then(this._statusCheck);
   }
 
   likeCard(cardId) {
-    return fetch(`https://mesto.nomoreparties.co/v1/cohort-64/cards/${cardId}/likes`, {
+    return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
       method: 'PUT',
-      headers: {
-        authorization: '0f03367f-2da2-4dcf-b5ff-2d3e57bc8d8b'
-      }
+      headers: this._headers
     })
     .then(this._statusCheck);
   }
 
   removeLike(cardId) {
-    return fetch(`https://mesto.nomoreparties.co/v1/cohort-64/cards/${cardId}/likes`, {
+    return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
       method: 'DELETE',
-      headers: {
-        authorization: '0f03367f-2da2-4dcf-b5ff-2d3e57bc8d8b'
-      }
+      headers: this._headers
     })
     .then(this._statusCheck);
   }
 }
 
 //exporting into index.js
-export const api = new Api({
-  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-64',
-  headers: {
-    authorization: '0f03367f-2da2-4dcf-b5ff-2d3e57bc8d8b',
-    'Content-Type': 'application/json'
-  }
-})
+export { Api };

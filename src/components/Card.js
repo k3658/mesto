@@ -33,8 +33,12 @@ class Card {
     this._photo = this._element.querySelector('.place__photo');
     this._buttonLike = this._element.querySelector('.place__like');
     this._buttonDelete = this._element.querySelector('.place__delete');
+
     this._counter = this._element.querySelector('.place__like_counter');
     this._counter.textContent = this._likes.length;
+    if (this._likes.filter(like => like._id === this._userId).length > 0) {
+      this._buttonLike.classList.add('place__like_active');
+    }
 
     this._element.querySelector('.place__name').textContent = this._name;
     this._photo.src = this._link;
@@ -42,11 +46,6 @@ class Card {
 
     this._setEventListeners();
     this._isOwner();
-    this._likes.forEach(() => {
-      if (this._cardId === this._userId) {
-        this._toggleLikeButton();
-    }
-    })
 
     return this._element;
   }

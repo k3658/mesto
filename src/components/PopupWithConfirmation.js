@@ -7,9 +7,14 @@ class PopupWithConfirmation extends Popup {
     this._handleDeleteCard = handleDeleteCard;
   }
 
-  handleConfirmButtonClick(cardElement, id) {
+  getValues(card) {
+    return (this._card = card);
+  }
+
+  setEventListeners() {
+    super.setEventListeners();
     this._confrimButton.addEventListener('click', () => {
-      this._handleDeleteCard(cardElement, id);
+      this._handleDeleteCard(this._card);
     });
   }
 }
