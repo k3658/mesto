@@ -7,7 +7,7 @@ class PopupWithConfirmation extends Popup {
     this._handleDeleteCard = handleDeleteCard;
   }
 
-  getValues(card) {
+  setData(card) {
     return (this._card = card);
   }
 

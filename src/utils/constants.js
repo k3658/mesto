@@ -1,3 +1,12 @@
+// API
+const apiConfig = {
+  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-64',
+  headers: {
+    authorization: '0f03367f-2da2-4dcf-b5ff-2d3e57bc8d8b',
+    'Content-Type': 'application/json'
+  }
+};
+
 // POPUP PROFILE RELATED VARIABLES
 const profilePopup = document.querySelector('.popup_type_profile');
 const profileForm = document.forms['form-profile'];
@@ -70,7 +79,8 @@ const buttonEditProfile = document.querySelector('.profile__edit');
 const buttonAddCards = document.querySelector('.profile__add');
 
 //exporting into index.js
-export { profilePopup, profileForm, profileNameInput, nameProfile, profileAboutInput, aboutProfile,
+export { apiConfig,
+profilePopup, profileForm, profileNameInput, nameProfile, profileAboutInput, aboutProfile,
 avatarPopup, avatarForm, avatar,
 cardsPopup, cardsForm, cardsContainer, cardsTitleInput, cardsLinkInput, initialCards,
 deleteCardPopup,

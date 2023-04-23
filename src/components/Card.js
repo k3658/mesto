@@ -56,7 +56,7 @@ class Card {
     };
   }
 
-  _toggleLikeCard() {
+  toggleLikeCard() {
     this._buttonLike.classList.toggle('place__like_active');
   }
 
@@ -64,18 +64,17 @@ class Card {
     this._openPopupDeleteConfirmation(this._item);
   }
 
-  _handleDeleteCard() {
+  deleteCard() {
     this._element.remove();
     this._element = null;
   }
 
   _setEventListeners() {
     this._buttonLike.addEventListener('click', () => {
-      this._toggleLikeCard();
       if (this._buttonLike.classList.contains('place__like_active')) {
-        this._handleLikeCard(this._cardId, this._counter);
+        this._handleRemoveLike(this);
       } else {
-        this._handleRemoveLike(this._cardId, this._counter);
+        this._handleLikeCard(this);
       }
     });
 
