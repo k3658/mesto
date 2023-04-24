@@ -14,6 +14,12 @@ Install NPM dependencies:
 ```sh
 npm install
 ```
+## **Использование**
+Начните разработку с помощью Webpack dev server:
+
+```sh
+npm run dev
+```
 ### **Планы**
 Проект будет дорабатываться по мере прохождения спринтов.
 ### **GitHub Pages**
