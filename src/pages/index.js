@@ -179,10 +179,9 @@ popupDeleteConfirmation.setEventListeners();
 
 // CARDS LIKES RELATED
 const handleLikeCard = (card) => {
-  api.likeCard(card._cardId)
+  api.likeCard(card.cardId)
   .then((res) => {
-    card.toggleLikeCard();
-    card._counter.textContent = res.likes.length;
+    card.updateLike(res.likes.length);
   })
   .catch((err) => {
     console.log(err);
@@ -190,10 +189,9 @@ const handleLikeCard = (card) => {
 };
 
 const handleRemoveLike = (card) => {
-  api.removeLike(card._cardId)
+  api.removeLike(card.cardId)
   .then((res) => {
-    card.toggleLikeCard();
-    card._counter.textContent = res.likes.length;
+    card.updateLike(res.likes.length);
   })
   .catch((err) => {
     console.log(err);

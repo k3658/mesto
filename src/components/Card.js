@@ -1,7 +1,7 @@
 class Card {
   constructor(userId, item, templateSelector, handleCardClick, openPopupDeleteConfirmation, handleLikeCard, handleRemoveLike) {
     this._userId = userId;
-    this._cardId = item._id;
+    this.cardId = item._id;
     this._ownerId = item.owner._id;
 
     this._item = item;
@@ -33,8 +33,8 @@ class Card {
     this._photo = this._element.querySelector('.place__photo');
     this._buttonLike = this._element.querySelector('.place__like');
     this._buttonDelete = this._element.querySelector('.place__delete');
-
     this._counter = this._element.querySelector('.place__like_counter');
+
     this._counter.textContent = this._likes.length;
     if (this._likes.filter(like => like._id === this._userId).length > 0) {
       this._buttonLike.classList.add('place__like_active');
@@ -56,8 +56,9 @@ class Card {
     };
   }
 
-  toggleLikeCard() {
+  updateLike(res) {
     this._buttonLike.classList.toggle('place__like_active');
+    this._counter.textContent = res;
   }
 
   _handleDeleteButtonClick() {
