@@ -20,7 +20,7 @@ npm install
 ```sh
 npm run dev
 ```
-### **Планы**
+## **Планы**
 Проект будет дорабатываться по мере прохождения спринтов.
-### **GitHub Pages**
+## **GitHub Pages**
 https://k3658.github.io/mesto/
