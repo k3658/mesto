@@ -9,7 +9,7 @@
 * CSS 3
 * JavaScript
 ## **Установка**
-Install NPM dependencies:
+Установите NPM dependencies:
 
 ```sh
 npm install
