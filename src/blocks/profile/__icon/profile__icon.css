@@ -3,6 +3,7 @@
   max-height: 121px;
   border-radius: 50%;
   aspect-ratio: 1/1;
+  width: 100%;
   cursor: pointer;
   z-index: 1;
   transition: opacity .3s ease-in-out;
