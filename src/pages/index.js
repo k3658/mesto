@@ -158,7 +158,7 @@ popupFormCard.setEventListeners();
 
 // POPUP DELETE CONFIRMATION RELATED
 const handleDeleteCard = (card) => {
-  api.deleteCard(card._cardId)
+  api.deleteCard(card.cardId)
   .then(() => {
     card.deleteCard();
     popupDeleteConfirmation.close();
