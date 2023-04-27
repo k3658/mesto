@@ -8,6 +8,7 @@
 * HTML 5
 * CSS 3
 * JavaScript
+* Webpack5
 ## **Установка**
 Установите NPM dependencies:
 
